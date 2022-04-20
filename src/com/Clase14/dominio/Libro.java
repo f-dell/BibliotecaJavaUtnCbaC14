@@ -9,15 +9,15 @@ package com.Clase14.dominio;
  *
  * @author Fabricio
  */
-public class Libro extends Publicacion{
+public class Libro extends Publicacion {
+
     //atributos
     private String isbn;
     //private String titulo;
     private String autor;
     //private int paginas;
-    
-    //metodo constructores inicializadores
 
+    //metodo constructores inicializadores
     public Libro() {
         super();
         isbn = "....";
@@ -27,35 +27,33 @@ public class Libro extends Publicacion{
     }
 
     public Libro(String isbn, String titulo, String autor, int paginas) {
-        super (titulo, paginas);
+        super(titulo, paginas);
         this.isbn = isbn;
         //this.titulo = titulo;
         this.autor = autor;
         //this.paginas = validarPaginas(paginas);
     }
-    
+
     //accesores getters and setters
-    public String getIsbn(){
+    public String getIsbn() {
         return isbn;
     }
-    
-    public void setIsbn(String isbn){
+
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
-    
+
 //    public String getTitulo(){
 //        return titulo;
 //    }
-    
 //    public void setTitulo(String titulo){
 //        this.titulo = titulo;
 //    }
-    
-    public String getAutor(){
+    public String getAutor() {
         return autor;
     }
-    
-    public void setAutor(String autor){
+
+    public void setAutor(String autor) {
         this.autor = autor;
     }
 
@@ -66,19 +64,16 @@ public class Libro extends Publicacion{
 //    public void setPaginas(int paginas) {
 //        this.paginas = validarPaginas(paginas);
 //    }
-    
     //metodos propios
-
     @Override
     public String toString() {
-        String aux = "El libro '" + getTitulo() + "' cuyo autor es '" + autor 
+        String aux = "El libro '" + getTitulo() + "' cuyo autor es '" + autor
                 + "' identificado con el isbn '" + isbn + "' tiene '" + getPaginas()
                 + "' paginas.";
         return aux;
     }
-    
+
 //    private int validarPaginas (int paginas){
 //        return (paginas > 0)? paginas:1;        
 //    }   
-    
 }

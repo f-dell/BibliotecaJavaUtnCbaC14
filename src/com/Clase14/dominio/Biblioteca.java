@@ -5,6 +5,8 @@
  */
 package com.Clase14.dominio;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Fabricio
@@ -12,36 +14,36 @@ package com.Clase14.dominio;
 public class Biblioteca {
 
     //atributos
-    private final Libro[] estanteria;
-    private int ultimoLibro;
+    private final Publicacion[] estanteria;
+    private int ultimo;
 
     //metodos constructores inicializadores
     public Biblioteca() {
-        estanteria = new Libro[20];
-        ultimoLibro = 0;
+        estanteria = new Publicacion[20];
+        ultimo = 0;
     }
 
     public Biblioteca(int cantidad) {
-        estanteria = new Libro[cantidad];
+        estanteria = new Publicacion[cantidad];
     }
 
-    public Libro[] getEstanteria() {
+    public Publicacion[] getEstanteria() {
         return estanteria;
     }
 
-    public boolean agregarLibro(Libro unLibro) {
+    public boolean agregarPublicacion(Publicacion unaPublicacion) {
         boolean aux = false;
 //        for (int i = 0; i < estanteria.length; i++) {
 //            if (estanteria[i] == null) {
-//                estanteria[i] = unLibro;
+//                estanteria[i] = unaPublicacion;
 //                aux = true;
 //                break;
 //            }
 //        }
-        if (ultimoLibro < estanteria.length) {
-            estanteria[ultimoLibro] = unLibro;
+        if (ultimo < estanteria.length) {
+            estanteria[ultimo] = unaPublicacion;
             aux = true;
-            ultimoLibro++;
+            ultimo++;
         }
         return aux;
     }
@@ -56,6 +58,32 @@ public class Biblioteca {
             }
         }
         aux += "]";
+        return aux;
+    }
+    
+    public String buscarPublicacion (String unTitulo) {
+        String aux = "Publicacion no encontrada";
+        for (int i = 0; i < estanteria.length; i++) {
+            if (estanteria[i] != null) {
+                if(estanteria[i].getTitulo().equals(unTitulo)) {
+                    aux = Arrays.toString(estanteria);
+                    break;
+                }
+            }
+        }
+        return aux;
+    }
+    
+    public int contarLibros(int nPaginas) {
+        int aux = 0;
+            for (int i = 0; i < estanteria.length; i++) {
+                if (estanteria[i] != null) {
+                    if (estanteria[i] instanceof Libro && 
+                            estanteria[i].getPaginas() >= nPaginas){
+                        aux ++;
+                    }
+                }
+        }
         return aux;
     }
 

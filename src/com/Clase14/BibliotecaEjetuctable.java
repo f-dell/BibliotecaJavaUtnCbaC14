@@ -35,14 +35,14 @@ public class BibliotecaEjetuctable {
         int cantidad;
 
         do {
-            System.out.println("Ingrese la cantidad de libros de la biblioteca(>0): ");
+            System.out.println("Ingrese la cantidad de publicaciones de la biblioteca(>0): ");
             cantidad = input.nextInt();
         } while (cantidad <= 0);
         
         //creamos un arreglo que represente lo fisicamente seria el estante
         
-        String isbn, titulo, autor;
-        int paginas;
+        String isbn, titulo = null, autor;
+        int paginas = 0;
         
         Libro estanteria[] = new Libro[cantidad];
         for (int i = 0; i < estanteria.length; i++) {
@@ -65,7 +65,16 @@ public class BibliotecaEjetuctable {
         for (int i = 0; i < estanteria.length; i++) {
             System.out.println("Libro " +": "  + estanteria[i].toString());
             
-        }       
+        }  
+        
+        String listado = miBiblioteca.mostrarListado();
+        System.out.println(listado);
+        
+        String unTitulo = miBiblioteca.buscarPublicacion("La Odisea");
+        System.out.println(unTitulo);
+        
+        int nPaginas = miBiblioteca.contarLibros(552);
+        System.out.println(nPaginas);
 
     }
 
